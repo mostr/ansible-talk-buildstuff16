@@ -1,0 +1,10 @@
+---
+- hosts: app
+  tasks:
+    - name: ensure README.md exists in /tmp
+      copy: src=../README.md dest=/tmp
+
+- hosts: monitoring
+  tasks:
+    - name: ensure Vagrantfile exists in /tmp
+      copy: src=./Vagrantfile dest=/tmp
