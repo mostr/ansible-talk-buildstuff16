@@ -1,21 +1,6 @@
 ---
-- hosts: app
+- hosts: all
   become: yes
 
-  vars: 
-    APP_NODEJS_VERSION: "6.x"
-  
   roles:
     - name: geerlingguy.nodejs
-      nodejs_version: "{{APP_NODEJS_VERSION}}"
-
-
-- hosts: monitoring
-  become: yes
-
-  vars: 
-    MONITORING_NODEJS_VERSION: "4.x"
-  
-  roles:
-    - name: geerlingguy.nodejs
-      nodejs_version: "{{MONITORING_NODEJS_VERSION}}"
