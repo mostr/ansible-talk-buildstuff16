@@ -1,10 +1,21 @@
 ---
 - hosts: app
-  tasks:
-    - name: ensure README.md exists in /tmp
-      copy: src=../README.md dest=/tmp
+  become: yes
+
+  vars: 
+    APP_NODEJS_VERSION: "6.x"
+  
+  roles:
+    - name: geerlingguy.nodejs
+      nodejs_version: "{{APP_NODEJS_VERSION}}"
+
 
 - hosts: monitoring
-  tasks:
-    - name: ensure Vagrantfile exists in /tmp
-      copy: src=./Vagrantfile dest=/tmp
+  become: yes
+
+  vars: 
+    MONITORING_NODEJS_VERSION: "4.x"
+  
+  roles:
+    - name: geerlingguy.nodejs
+      nodejs_version: "{{MONITORING_NODEJS_VERSION}}"
