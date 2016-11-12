@@ -1,6 +1,18 @@
 ---
+
 - hosts: all
   become: yes
-
   roles:
     - name: geerlingguy.nodejs
+  tasks:
+    - name: ensure user with defined home dir exits
+      user: name={{APP_USER}} state=present shell=/bin/bash home={{APP_USER_HOME}}
+
+
+
+- hosts: app
+  become: yes
+  tasks:
+    - name: ensure app root dir exists
+      file: path={{APP_ROOT_DIR}} state=directory owner={{APP_USER}} group={{APP_USER}}
+

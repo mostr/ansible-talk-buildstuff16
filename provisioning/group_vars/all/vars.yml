@@ -1,0 +1,4 @@
+---
+APP_USER: buildstuff
+APP_USER_HOME: /opt/buildstuff
+APP_ROOT_DIR: "{{APP_USER_HOME}}/app"
