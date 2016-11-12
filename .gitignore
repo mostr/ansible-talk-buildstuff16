@@ -1,2 +1,6 @@
 provisioning/.vagrant/
-providioning/*.retry
+provisioning/*.retry
+
+app/node_modules
+.idea/
+*.iml

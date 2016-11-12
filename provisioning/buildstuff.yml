@@ -12,7 +12,28 @@
 
 - hosts: app
   become: yes
+  roles:
+    - name: ssilab.upstart
+      service_name: buildstuff-app
+      service_user: "{{APP_USER}}"
+      service_chdir: "{{APP_ROOT_DIR}}"
+      service_exec: nodejs src/index.js
+      service_restart: no
   tasks:
     - name: ensure app root dir exists
       file: path={{APP_ROOT_DIR}} state=directory owner={{APP_USER}} group={{APP_USER}}
+    - name: ensure package.json is in place
+      copy: src=../app/package.json dest={{APP_ROOT_DIR}} owner={{APP_USER}} group={{APP_USER}}
+      notify:
+        - install deps
+        - restart app
+    - name: ensure app sources are in place
+      copy: src=../app/src dest={{APP_ROOT_DIR}} owner={{APP_USER}} group={{APP_USER}}
+      notify: restart app
 
+  handlers:
+    - name: install deps
+      command: npm install chdir={{APP_ROOT_DIR}}
+      become_user: "{{APP_USER}}"
+    - name: restart app
+      service: name=buildstuff-app state=restarted

@@ -2,3 +2,7 @@
 - name: geerlingguy.nodejs
   src: geerlingguy.nodejs
   version: 3.3.1
+
+- src: https://github.com/dstil/ansible-upstart
+  version: e6d499f865cf27e3fa528b967e6d0abc49b85b8a
+  name: ssilab.upstart

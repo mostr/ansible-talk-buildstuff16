@@ -1,0 +1,13 @@
+{
+  "name": "buildstuff",
+  "version": "1.0.0",
+  "description": "Buildstuff demo app",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Michał Ostruszka, @mostruszka",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^2.5.2",
+    "express": "^4.14.0"
+  }
+}
