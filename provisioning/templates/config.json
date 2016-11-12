@@ -1,4 +1,6 @@
 {
   "APP_PORT": {{APP_PORT}},
-  "SERVER_ADDRESS": "{{ansible_eth1.ipv4.address}}"
+  "SERVER_ADDRESS": "{{ansible_eth1.ipv4.address}}",
+  "ADMIN_USER": "{{ADMIN_USER}}",
+  "ADMIN_PASSWORD": "{{ADMIN_PASSWORD}}"
 }
