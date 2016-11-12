@@ -30,6 +30,9 @@
     - name: ensure app sources are in place
       copy: src=../app/src dest={{APP_ROOT_DIR}} owner={{APP_USER}} group={{APP_USER}}
       notify: restart app
+    - name: ensure config file from template is in place
+      template: src=config.json dest={{APP_ROOT_DIR}} owner={{APP_USER}} group={{APP_USER}}
+      notify: restart app
 
   handlers:
     - name: install deps

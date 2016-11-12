@@ -1,0 +1,4 @@
+{
+  "APP_PORT": {{APP_PORT}},
+  "SERVER_ADDRESS": "{{ansible_eth1.ipv4.address}}"
+}
