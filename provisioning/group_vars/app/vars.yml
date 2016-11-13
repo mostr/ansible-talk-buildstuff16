@@ -1,3 +1,2 @@
 ---
 nodejs_version: "6.x"
-APP_PORT: 8080

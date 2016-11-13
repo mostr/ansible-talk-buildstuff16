@@ -1,0 +1,3 @@
+---
+- name: ensure user with defined home dir exits
+  user: name={{APP_USER}} state=present shell=/bin/bash home={{APP_USER_HOME}}

@@ -1,0 +1,8 @@
+---
+dependencies:
+  - role: ssilab.upstart
+    service_name: buildstuff-app
+    service_user: "{{APP_USER}}"
+    service_chdir: "{{APP_ROOT_DIR}}"
+    service_exec: nodejs src/index.js
+    service_restart: no

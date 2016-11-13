@@ -1,0 +1,6 @@
+---
+- name: install deps
+  command: npm install chdir={{APP_ROOT_DIR}}
+  become_user: "{{APP_USER}}"
+- name: restart app
+  service: name=buildstuff-app state=restarted
