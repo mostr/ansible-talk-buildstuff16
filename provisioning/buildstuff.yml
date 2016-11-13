@@ -24,16 +24,18 @@
       file: path={{APP_ROOT_DIR}} state=directory owner={{APP_USER}} group={{APP_USER}}
     - name: ensure package.json is in place
       copy: src=../app/package.json dest={{APP_ROOT_DIR}} owner={{APP_USER}} group={{APP_USER}}
+      tags: app_deploy
       notify:
         - install deps
         - restart app
     - name: ensure app sources are in place
       copy: src=../app/src dest={{APP_ROOT_DIR}} owner={{APP_USER}} group={{APP_USER}}
+      tags: app_deploy
       notify: restart app
     - name: ensure config file from template is in place
       template: src=config.json dest={{APP_ROOT_DIR}} owner={{APP_USER}} group={{APP_USER}}
+      tags: app_deploy
       notify: restart app
-
   handlers:
     - name: install deps
       command: npm install chdir={{APP_ROOT_DIR}}
