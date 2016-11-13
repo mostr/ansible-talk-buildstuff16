@@ -12,5 +12,9 @@ app02
 [monitoring]
 10.0.0.200  ansible_ssh_private_key_file='.vagrant/machines/monitoring/virtualbox/private_key' ansible_user='vagrant'
 
+[vagrant:children]
+app
+monitoring
+
 
 
