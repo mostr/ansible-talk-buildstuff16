@@ -1,0 +1,4 @@
+---
+NGINX_CONF_NAME: buildstuff
+NGINX_CONF_AVAILABLE: /etc/nginx/sites-available/{{NGINX_CONF_NAME}}
+NGINX_CONF_ENABLED: /etc/nginx/sites-enabled/{{NGINX_CONF_NAME}}

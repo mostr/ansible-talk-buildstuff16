@@ -13,6 +13,7 @@
 - hosts: app
   become: yes
   roles:
+    - name: http-proxy
     - name: ssilab.upstart
       service_name: buildstuff-app
       service_user: "{{APP_USER}}"

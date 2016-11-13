@@ -1,0 +1,18 @@
+---
+- name: ensure nginx is installed
+  apt: name=nginx state=present
+
+- name: ensure nginx is running
+  service: name=nginx state=running
+
+- name: ensure proxy config files are in sites-available
+  copy: src=buildstuff.nginx.conf dest={{NGINX_CONF_AVAILABLE}}
+  notify: restart nginx
+
+- name: ensure "default" link in sites-enabled is absent
+  file: state=link path=/etc/nginx/sites-enabled/default state=absent
+  notify: restart nginx
+
+- name: ensure app link in sites-enabled is present
+  file: state=link src={{NGINX_CONF_AVAILABLE}} dest={{NGINX_CONF_ENABLED}}
+  notify: restart nginx
